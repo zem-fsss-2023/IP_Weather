@@ -8,6 +8,7 @@ public class ApiSummerchoolApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ApiSummerchoolApplication.class, args);
+
 	}
 
 }
