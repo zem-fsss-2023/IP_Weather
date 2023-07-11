@@ -1,6 +1,5 @@
 package com.example.API_summerchool;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,10 +10,14 @@ import reactor.core.publisher.Mono;
 public class API_Control {
 
     private final WebClient webClient;
+    private final WebClient webClient1;
 
-    public API_Control(WebClient.Builder webClientBuilder) {
+    public API_Control(WebClient.Builder webClientBuilder, WebClient.Builder webClientBuilder1) {
         this.webClient = webClientBuilder.baseUrl("https://ipapi.co").build();
+        this.webClient1 = webClientBuilder1.baseUrl("https://api.openweathermap.org/data/2.5/weather").build();
     }
+
+
 
     @GetMapping("/ipdata/{ip}")
     public Mono<IpData> getIpData(@PathVariable String ip) {
