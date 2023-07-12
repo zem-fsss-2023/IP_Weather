@@ -17,13 +17,12 @@ public class API_Control {
         this.webClient1 = webClientBuilder1.baseUrl("https://api.openweathermap.org/data/2.5/weather").build();
     }
 
-
-
     @GetMapping("/ipdata/{ip}")
     public Mono<IpData> getIpData(@PathVariable String ip) {
         return webClient.get()
                 .uri("/{ip}/json/", ip)
                 .retrieve()
-                .bodyToMono(IpData.class);
-    }
-}
+                        .bodyToMono(IpData.class);
+        }
+        }
+e
